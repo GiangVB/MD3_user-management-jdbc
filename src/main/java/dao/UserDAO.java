@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO implements IUserDAO{
+    public static final String MYSQL_JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
     private String jdbcUsername = "root";
     private String jdbcPassword = "Ho!Ecbl4y3nl0?";
@@ -23,7 +24,7 @@ public class UserDAO implements IUserDAO{
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(MYSQL_JDBC_DRIVER);
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
